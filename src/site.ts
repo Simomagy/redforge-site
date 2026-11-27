@@ -10,13 +10,13 @@ export const SITE = {
   discord: 'https://discord.gg/UXAavjMFZV',
   /**
    * The partner studio: its chapter of the page, and the sign of its house
-   * in the scene. `logo` is a path under `public/` (for example
-   * '/partner.svg'), or empty; `links` are shown under the blurb.
+   * in the scene. `logo` is a path under `public/`, or empty (it is
+   * shown beside the blurb and painted on the sign); `links` are shown under the blurb.
    */
   partner: {
     name: 'Snail Interactive',
     url: 'https://snailinteractive.net/',
-    logo: '',
+    logo: '/partner.webp',
     /** The small line under the name on the sign of their house in the scene. */
     tagline: 'MLOs for RedM',
     blurb:

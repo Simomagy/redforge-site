@@ -20,7 +20,7 @@ export type WorldOptions = {
   /** Fractional chapter index, 0 to CHAPTER_COUNT - 1, written by the page on scroll. */
   progress: { current: number }
   /** Painted on the sign of the partner's house. */
-  partner: { name: string; tagline: string }
+  partner: { name: string; tagline: string; logo: string }
   onFrame?: (info: { x: number; y: number; z: number; hour: number }) => void
 }
 
@@ -124,7 +124,7 @@ export function createWorld(canvas: HTMLCanvasElement, opts: WorldOptions) {
     ...Array.from({ length: 30 }, (_, i) => roadPoint((i / 29) * ROAD_LENGTH, 2, 0)),
   ])
   scene.add(props.group)
-  const partner = createPartnerSite(tu.uReveal, opts.partner.name, opts.partner.tagline)
+  const partner = createPartnerSite(tu.uReveal, opts.partner)
   scene.add(partner.group)
   const roadmap = createRoadmapSite(tu.uReveal)
   scene.add(roadmap.group)

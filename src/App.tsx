@@ -313,7 +313,7 @@ export default function App() {
             </>
           }
         >
-          {partner.logo && <img className="partner__logo" src={partner.logo} alt="" />}
+          {partner.logo && <img className="partner__logo" src={partner.logo} alt="" width={64} height={64} loading="lazy" />}
           <p>{partner.blurb}</p>
           <ul className="partner__links">
             {partner.links.map((l) => (

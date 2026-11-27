@@ -589,9 +589,11 @@ h1 {
 
 .partner__logo {
   display: block;
-  height: 56px;
-  width: auto;
+  width: 64px;
+  height: 64px;
   margin-top: 1.2rem;
+  border-radius: 50%;
+  box-shadow: 0 0 34px rgb(120 235 150 / 0.28);
 }
 
 .partner__links {

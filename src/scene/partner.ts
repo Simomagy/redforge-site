@@ -3,14 +3,15 @@ import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js'
 import { box, ease } from './build'
 import { SITES, revealable } from './terrain'
 
-/** The painted board over the porch, with the studio's name. */
-function signTexture(name: string, tagline: string) {
+/** The painted board over the porch, with the studio's name and its logo. */
+function signTexture(name: string, tagline: string, logo: string) {
   const c = document.createElement('canvas')
   c.width = 1024
   c.height = 256
   const tex = new THREE.CanvasTexture(c)
   tex.colorSpace = THREE.SRGBColorSpace
   tex.anisotropy = 8
+  let mark: HTMLImageElement | null = null
   const draw = () => {
     const g = c.getContext('2d')!
     g.fillStyle = '#24140e'
@@ -25,8 +26,11 @@ function signTexture(name: string, tagline: string) {
     do {
       g.font = `400 ${size}px "Instrument Serif", Georgia, serif`
       size -= 4
-    } while (g.measureText(name).width > c.width - 110)
-    g.fillText(name, c.width / 2, 108)
+    } while (g.measureText(name).width > c.width - (mark ? 310 : 110))
+    // The logo sits at the left of the board, the words in what is left.
+    const cx = mark ? 238 + (c.width - 238 - 40) / 2 : c.width / 2
+    if (mark) g.drawImage(mark, 48, 43, 170, 170)
+    g.fillText(name, cx, 108)
     g.fillStyle = '#ff8f45'
     g.font = '500 30px "JetBrains Mono", monospace'
     g.fillText(tagline.toUpperCase().split('').join(' '), c.width / 2, 200)
@@ -38,6 +42,14 @@ function signTexture(name: string, tagline: string) {
     document.fonts.load('400 120px "Instrument Serif"'),
     document.fonts.load('500 30px "JetBrains Mono"'),
   ]).then(draw, () => {})
+  if (logo) {
+    const img = new Image()
+    img.onload = () => {
+      mark = img
+      draw()
+    }
+    img.src = logo
+  }
   return tex
 }
 
@@ -45,7 +57,10 @@ function signTexture(name: string, tagline: string) {
  * The partner's house: a frontier building whose roof swings open on the
  * interior, with its rooms and portals outlined as the editor shows them.
  */
-export function createPartnerSite(uReveal: { value: number }, name: string, tagline: string) {
+export function createPartnerSite(
+  uReveal: { value: number },
+  { name, tagline, logo }: { name: string; tagline: string; logo: string },
+) {
   const S = SITES.partner
   const group = new THREE.Group()
   group.position.set(S.x, S.y, S.z)
@@ -104,7 +119,7 @@ export function createPartnerSite(uReveal: { value: number }, name: string, tagl
 
   const sign = new THREE.Mesh(
     new THREE.PlaneGeometry(8.4, 2.1),
-    new THREE.MeshBasicMaterial({ map: signTexture(name, tagline), fog: false }),
+    new THREE.MeshBasicMaterial({ map: signTexture(name, tagline, logo), fog: false }),
   )
   sign.position.set(0, H + 1.45, 4.22)
   group.add(sign)
