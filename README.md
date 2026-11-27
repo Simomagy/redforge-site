@@ -44,9 +44,11 @@ The number of `data-chapter` sections in `App.tsx`, the camera keys and
 
 ## Hosting
 
-The build expects to be served from the root of its domain (Vite's `base` is
-`/`). `og:image` in `index.html` should become an absolute URL once the domain
-is known: link previews need one.
+https://redforge.prysmastudio.art, on Cloudflare Pages: every push to `main`
+is built (`npm run build`, output `dist`) and published. The build expects to
+be served from the root of its domain (Vite's `base` is `/`). The address is
+written in `index.html` (canonical link, `og:url`, `og:image`): change it
+there if the site moves.
 
 ## Behaviour
 
