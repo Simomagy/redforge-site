@@ -1,0 +1,55 @@
+{
+  "fetchedAt": "2026-11-27T02:04:23.590Z",
+  "version": "2.6.1",
+  "milestones": [
+    {
+      "title": "2.7 — Navmesh: polygons and attributes",
+      "description": "Pick navmesh polygons and edit their flags: block areas for peds, mark interiors, pavements, roads, doors.",
+      "open": 4,
+      "closed": 0,
+      "url": "https://github.com/Simomagy/RedForge/milestone/1"
+    },
+    {
+      "title": "2.8 — Navmesh: generation from collisions",
+      "description": "Generate navmesh from collisions inside a box (a custom interior, a new building) and stitch it into the game's.",
+      "open": 6,
+      "closed": 0,
+      "url": "https://github.com/Simomagy/RedForge/milestone/2"
+    },
+    {
+      "title": "2.9 — Map editor",
+      "description": "Edit the pause map and minimap tiles inside RedForge, exported with the project.",
+      "open": 6,
+      "closed": 0,
+      "url": "https://github.com/Simomagy/RedForge/milestone/3"
+    },
+    {
+      "title": "2.10 — Scenario points and AMVs",
+      "description": "Edit the game's scenario points and ambient mask volumes.",
+      "open": 9,
+      "closed": 0,
+      "url": "https://github.com/Simomagy/RedForge/milestone/4"
+    },
+    {
+      "title": "2.11 — Navmesh: geometry editing",
+      "description": "Edit navmesh geometry by hand, in RedForge and in Blender, and its special links.",
+      "open": 4,
+      "closed": 0,
+      "url": "https://github.com/Simomagy/RedForge/milestone/5"
+    },
+    {
+      "title": "2.12 — Vehicles: inspector and handling",
+      "description": "Inspect game and custom vehicles, edit their handling and metadata.",
+      "open": 5,
+      "closed": 0,
+      "url": "https://github.com/Simomagy/RedForge/milestone/6"
+    },
+    {
+      "title": "2.13 — Animations in Blender",
+      "description": "Make ped animations in Blender and bake them into a ycd the game plays.",
+      "open": 4,
+      "closed": 0,
+      "url": "https://github.com/Simomagy/RedForge/milestone/7"
+    }
+  ]
+}
